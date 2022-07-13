@@ -24,9 +24,21 @@ public class Cliente {
 		this.card = card;
 		this.ingressosC = ingressosC;
 	}
-	
+
 	public String getNome() {
 		return nome;
+	}
+
+	public int getCpf() {
+		return cpf;
+	}
+
+	public String getCard() {
+		return card;
+	}
+
+	public int getIngressosC() {
+		return ingressosC;
 	}
 
 	@Override
@@ -41,23 +53,40 @@ public class Cliente {
 		return cpf == other.cpf;
 	}
 	
-	public void comprarIngresso() {
+	public int comprarIngresso() {
 		System.out.println("\nQual ingresso deseja comprar?\n1: Ingresso Comum.\n2: Ingresso Vip Gold.\n3: Ingresso Vip Platinum.\n\nDigite sua opção:");
 		op = sc.nextInt();
 		switch (op) {
 		case 1:
 			System.out.println("\nIngresso comum comprado com sucesso!");
+			ingressosC += 1;
 			break;
 		case 2:
-			System.out.println("\nIngresso Vip Gold comprado com sucesso!");
+			if (ingressosC >= 10) {
+				System.out.println("\nIngresso Vip Gold comprado com sucesso!");
+				ingressosC += 1;
+			}
+			else {
+				System.out.println("\nVocê não possui o direito de comprar o Ingresso Vip Gold!");
+				op = 0;
+			}
 			break;
 		case 3:
-			System.out.println("\nIngresso Vip Platinum comprado com sucesso!");
+			if (ingressosC >= 20) {
+				System.out.println("\nIngresso Vip Platinum comprado com sucesso!");
+				ingressosC += 1;
+			}
+			else {
+				System.out.println("\nVocê não possui o direito de comprar o Ingresso Vip Platinum!");
+				op = 0;
+			}
 			break;
 		default:
 			System.out.println("\nNão há ingresso com a opção digitada!");
+			op = 0;
 			break;
 		}
+		return op;
 	}
 	
 	@Override

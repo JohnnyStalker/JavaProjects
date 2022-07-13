@@ -1,7 +1,7 @@
 package Cinema;
 
 public class Platinum extends Ingresso {
-	private static final double DESCONTO = 0.12;
+	private static final double DESCONTO = 0.88;
 	
 	public Platinum(String data, String nome, String sala, String hora, double valor) {
 		super(data, nome, sala, hora, valor);
@@ -9,6 +9,6 @@ public class Platinum extends Ingresso {
 	
 	@Override
 	public double imprimeValor(){
-		return getValor() * (1.00 - DESCONTO);
+		return getValor() * DESCONTO;
 	}
 }
