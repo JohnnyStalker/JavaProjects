@@ -14,10 +14,6 @@ public class Cinema {
 		return Clientes;
 	}
 	
-	public void setClientes(ArrayList<Cliente> clientes) {
-		Clientes = clientes;
-	}
-
 	public void addCliente(Cliente cliente) {
 		if (Clientes.contains(cliente)) {
 			System.out.println("\nCliente já faz parte da lista!");
